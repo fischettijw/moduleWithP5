@@ -1,14 +1,16 @@
+import Ball from "./Ball.js";
+
 let ball;
 
-function setup() {
-    createCanvas(500, 500);
-    ball = new Ball(width / 2, height / 2, 20, 'red', -3, 2);
-}
+new p5(function(p) {
+    p.setup = function() {
+        p.createCanvas(400, 400);
+        ball = new Ball(p.width / 2, p.height / 2, 20, 'red', -3, 2);
+    }
 
-function draw() {
-    background(220);
-    ball.show();
-    ball.move();
-}
-
-//
+    p.draw = function() {
+        p.background(220);
+        ball.show(p);
+        ball.move(p);
+    }
+})
